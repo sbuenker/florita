@@ -1,7 +1,6 @@
 # the steps below subset the original FEMA policies dataset based on variables needed for analysis
 
 # step 1. subset data on columns we need; convert countyCode to string; extract year from date
-
 WITH cte AS (
   SELECT
     CAST(countyCode AS STRING) AS countyCode,
@@ -96,11 +95,3 @@ WHERE
   cancellationDateOfFloodPolicy IS NULL 
 
 # only 0.85% of observations lost from filtering in steps 1-5
-
-
-
-
-
-
-
-
