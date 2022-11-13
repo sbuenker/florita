@@ -71,7 +71,6 @@ cte4 AS (
   # makes it easier to identify adoption rates each year
 # delete cancellationDateOfFloodPolicy IS NOT NULL
   # cancellation year can be different from termination date, making it hard to identify adoption rates each year
-
 SELECT
   countyCode_str AS countyCode,
   propertyState,
@@ -94,4 +93,4 @@ WHERE
   policyTermIndicator=1 AND 
   cancellationDateOfFloodPolicy IS NULL 
 
-# only 0.85% of observations lost from filtering in steps 1-5
+# only 0.85% of 61414247 observations lost from filtering in steps 1-5
