@@ -57,8 +57,8 @@ cte4 AS (
       ELSE NULL
     END AS fema_ins_max,
     CASE
-      WHEN SUBSTRING(floodZone,1,1) IN ('A','V') THEN 1
-      WHEN SUBSTRING(floodZone,1,1) IN ('B','C','X') THEN 0
+      WHEN SUBSTRING(floodZone,1,1) IN ('A','V') THEN 1 # sfha floodzone
+      WHEN SUBSTRING(floodZone,1,1) IN ('B','C','X') THEN 0 # non-sfha floodzone
       ELSE NULL
     END AS sfha_flood_risk,
     *
