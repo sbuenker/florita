@@ -128,8 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-
-data/*.csv
+data/input/*.csv
 models/*.sav
 mlruns
 models/*
