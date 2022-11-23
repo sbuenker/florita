@@ -1,5 +1,7 @@
 import pandas as pd
 import county_demographics
+import numpy as np
+import datetime as dt
 
 def get_demographics(columns:list):
     """
@@ -39,3 +41,18 @@ def available_columns(category_key:str=None):
             if type(value) == dict:
                 for value in value.keys():
                     print("('{}', '{}')".format(key, value))
+
+def transform_claims(df):
+    df = df[df.yearOfLoss >= 2008]
+    df = df.assign(
+        timestamp = lambda x: pd.to_datetime(x['dateOfLoss']), 
+        year_week = lambda x: x['timestamp'].dt.strftime("%Y%W")
+    )
+    agg = df.groupby(["year_week", "state"])[["id", 'policyCount', 'amountPaidOnBuildingClaim', 'amountPaidOnContentsClaim', 'amountPaidOnIncreasedCostOfComplianceClaim']].agg({
+        "id": np.count_nonzero, 
+        'policyCount': np.sum, 
+        'amountPaidOnBuildingClaim': np.sum, 
+        'amountPaidOnContentsClaim': np.sum, 
+        'amountPaidOnIncreasedCostOfComplianceClaim': np.sum
+    })
+    return agg
