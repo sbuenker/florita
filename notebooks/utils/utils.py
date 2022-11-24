@@ -1,11 +1,13 @@
 import pandas as pd
 import utils.county_demographics
 
-def get_demographics(columns:list):
+def get_demographics(columns:list, name=False, state=False):
     """
     Make DataFrame with CountyFIPS column and requested demograpic columns.
     Args:
     columns: list of tuples of category and concrete value available in county_demopgraphics
+    name: add a column with the name of the county
+    state: add a column with the state abbreviation of the county
     Returns:
     DataFrame 
     """
@@ -21,6 +23,10 @@ def get_demographics(columns:list):
     df = FipsDF[["CountyFIPS"]]
     for column in columns:
         df[column[1]] = [by_code[fips][column[0]][column[1]] for fips in FipsDF.CountyFIPS]
+    if name:
+        df["County"] =  [by_code[fips]["County"] for fips in FipsDF.CountyFIPS]
+    if state:
+        df["State"] =  [by_code[fips]["State"] for fips in FipsDF.CountyFIPS]
     return df
 
 def available_columns(category_key:str=None):
@@ -39,3 +45,18 @@ def available_columns(category_key:str=None):
             if type(value) == dict:
                 for value in value.keys():
                     print("('{}', '{}')".format(key, value))
+
+def transform_claims(df):
+    df = df[df.yearOfLoss >= 2008]
+    df = df.assign(
+        timestamp = lambda x: pd.to_datetime(x['dateOfLoss']), 
+        year_week = lambda x: x['timestamp'].dt.strftime("%Y%W")
+    )
+    agg = df.groupby(["year_week", "state"])[["id", 'policyCount', 'amountPaidOnBuildingClaim', 'amountPaidOnContentsClaim', 'amountPaidOnIncreasedCostOfComplianceClaim']].agg({
+        "id": np.count_nonzero, 
+        'policyCount': np.sum, 
+        'amountPaidOnBuildingClaim': np.sum, 
+        'amountPaidOnContentsClaim': np.sum, 
+        'amountPaidOnIncreasedCostOfComplianceClaim': np.sum
+    })
+    return agg
