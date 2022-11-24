@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import utils.county_demographics
 
 def get_demographics(columns:list, name=False, state=False):
