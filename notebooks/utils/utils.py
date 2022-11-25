@@ -19,13 +19,14 @@ def get_demographics(columns:list, name=False, state=False):
     report = utils.county_demographics.get_report()
     by_code = {}
     for item in report:
+        item["CountyFull"] = item["County"]
         item["County"] = "".join(item["County"].split("County")).strip(" ")
         by_code[FipsDF[(FipsDF.CountyName == item["County"]) & (FipsDF.StateAbbr == item["State"])].CountyFIPS.values[0]] = item
     df = FipsDF[["CountyFIPS"]]
     for column in columns:
         df[column[1]] = [by_code[fips][column[0]][column[1]] for fips in FipsDF.CountyFIPS]
     if name:
-        df["County"] =  [by_code[fips]["County"] for fips in FipsDF.CountyFIPS]
+        df["County"] =  [by_code[fips]["CountyFull"] for fips in FipsDF.CountyFIPS]
     if state:
         df["State"] =  [by_code[fips]["State"] for fips in FipsDF.CountyFIPS]
     return df
