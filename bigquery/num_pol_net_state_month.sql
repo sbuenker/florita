@@ -136,7 +136,7 @@ pol AS (
     pol_eff.propertyState,
     pol_eff.num_policies_eff,
     pol_term.num_policies_term AS num_policies_term,
-    pol_eff.num_policies_eff - pol_term.num_policies_term as num_policies_net
+    (pol_eff.num_policies_eff - pol_term.num_policies_term) as num_policies_net
   FROM pol_eff
   LEFT JOIN pol_term
   ON pol_eff.year_eff = pol_term.year_term AND 
