@@ -59,7 +59,7 @@ def transform_claims_week(df):
     df = df[df.yearOfLoss >= 2008]
     df = df.assign(
         timestamp = lambda x: pd.to_datetime(x['dateOfLoss']), 
-        year = lambda x: x['timestamp'].dt.year
+        year = lambda x: x['timestamp'].dt.year,
         week = lambda x: x['timestamp'].dt.isocalendar().week
     )
     agg = df.groupby(['year', 'week', 'state'])[['id', 'policyCount', 'amountPaidOnBuildingClaim', 'amountPaidOnContentsClaim', 'amountPaidOnIncreasedCostOfComplianceClaim']].agg({
@@ -81,7 +81,7 @@ def transform_claims_month(df):
     df = df[df.yearOfLoss >= 2008]
     df = df.assign(
         timestamp = lambda x: pd.to_datetime(x['dateOfLoss']), 
-        year = lambda x: x['timestamp'].dt.year
+        year = lambda x: x['timestamp'].dt.year,
         month = lambda x: x['timestamp'].dt.month
     )
     agg = df.groupby(['year', 'month', 'state'])[['id', 'policyCount', 'amountPaidOnBuildingClaim', 'amountPaidOnContentsClaim', 'amountPaidOnIncreasedCostOfComplianceClaim']].agg({
