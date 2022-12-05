@@ -10,8 +10,10 @@
 
 
 # Table of Contents
+[Overview](#Overview)
 
-# Overview
+[Regulatory Details](#regulatory-details)
+# Overview <a id="Overview"></a>
 Our changing climate has increased the frequency of extreme events, and this has been most noticeable in recent years. From an insurance perspective, to mitigate loss and damage associated with extreme weather events, households can purchase climate risk insurance policies. Furthermore, the increase in extreme weather events means that there is a greater need for insurers to factor in climate risk scenarios into their models for insurance claims payout. 
 
 In this project, we aim to provide a fictitious stakeholder, namely a new entrant into the market for providing flood insurance policies, recommendations about the value this market provides. Namely, we seek to study and answer the following questions:
@@ -21,7 +23,7 @@ In this project, we aim to provide a fictitious stakeholder, namely a new entran
 3. For asset-liabilities risk management of our stakeholder, we create a machine learning model to predict flood claims that are likely to be approved.
 
 For replication of this project, refer to the installation file [here.](installation.md) For the presentation delivered as part of the Neue Fische Data Science Bootcamp Graduation event, click [here.](installation.md)
-# Regulatory Details
+# Regulatory Details <a id="regulatory-details"></a>
 * Keep this discussion brief.
 * Discuss about FEMA.
 * Explain caps on building and contents coverage.
@@ -90,7 +92,8 @@ For more detailed exploratory data analysis, please refer to the following:
 * What is it that we are predicting? Which is the 1 variable and 0 variable.
 ## Feature Used and Feature Engineering
 * Which groups of features do we include in ML model?
-* Why we do not include year variables?
+* YEARS
+* Zipcodes
 * Why we include zip codes as a feature? Rivers etc. 
 * One hot encoding - which features do we make as dummy variables
 * Which features do we use standard scalar.
