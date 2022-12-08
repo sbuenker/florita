@@ -86,7 +86,7 @@ For more detailed exploratory data analysis, please refer to the following:
 * EDA Claims, located [here.](installation.md)
 * States EDA, located [here.](./notebooks/states_eda.ipynb)
 * Generation of csv files for maps, located [here.](./notebooks/maps_csvs.ipynb)
-* Interactive Dashboard [here.](./putlink)
+* Interactive Dashboard, located [here.](./putlink)
 
 # Prediction of Insurance Claim Approvals <a id="ml-claims-prediction"></a>
 For reliable capital planning for our stakeholder, we need to know as precisely as possible, how many claims we can expect to be accepted or rejected. Predicting this purely from the past ratio of approvals and rejections is a good start, but what if we can take into account the actual mix of new customers as to whether their claims are more likely to be approved or rejected? We therefore develop a classifier model for claim approval or rejection. 
@@ -129,7 +129,7 @@ The table below shows results on the test set for the two models.
 
 |Model|Weighted-Average F1-Score (Test)|
 |--|--:|
-|Proportions Model (Baseline)|-0.635|
+|Proportions Model (Baseline)|0.635|
 |XGBoost Model|0.736|
 
 
@@ -172,7 +172,7 @@ Average Claim Size = $24299.00 (estimated from the claims data)
 * Households in the Mid-West, New England and the Pacific coasts that voluntarily purchase flood insurance are largely under–insured relative to FEMA maximum insurance coverage. Our stakeholder could offer more insurance protection for these households, thereby generating more revenue for insurance premiums. 
 * XGBoost model for prediction of insurance claims can reduce losses for our stakeholder by approximately $54.9 million per year.
 
-# Future Work <a id="future"></a>
+# Future Work (To Do) <a id="future"></a>
 * We would like to examine whether the number of flood insurance policies bought can be explained using historic insurance claims. 
     * The motivation of this comes from our data analysis which shows that after regional flood events, there is a contemporaneous increase in insurance claims and a future increase in voluntary flood insurance policies bought in the region.
     * There is no significant increase in claims and voluntary flood insurance policies bought in other regions not affected by the flood event.
