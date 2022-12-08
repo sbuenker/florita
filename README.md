@@ -56,12 +56,12 @@ For more details on data cleaning, please refer to the following:
 * For generating datasets at the state level, click [here.](./notebooks/state_data_generation.ipynb)
 * Creation of utility helper functions, click [here.](./notebooks/utils/)
 
-# Exploratory Data Analysis  (To Do) <a id="eda"></a>
+# Exploratory Data Analysis <a id="eda"></a>
 Note that the maps below are interactive once you click on them. 
 
-![number of claims over the years]
+![prop_damage_by_years-2](./images/prop_damage_by_years-2.png)
 
-![value of claims over the years]
+![total_amount_by_years-2](./images/total_amount_by_years-2.png)
 
 [![dollar-value-claims-counties](./images/dollar-value-claims-counties.png)](https://www.datawrapper.de/_/LICCb/)
 
@@ -123,7 +123,12 @@ For insurance claims classification, we run two models:
 
 * **XGBoost Model** with hyperparameter tuning.
 
-Our approach for hyperparamter tuning for the XGBoost model is to: (1) Choose a random sample of 10% of the training data after the train-test split; (2) Run a randomized grid search with 5-fold cross validation; (3) Apply the chosen hyperparameters to the full test data. For the actual hyperparameters used in the XGBoost model, please refer [here.](./notebooks/pipeline_xgboost.ipynb)
+Our approach for hyperparamter tuning for the XGBoost model is to: 
+1. Choose a random sample of 10% of the training data after the train-test split
+2. Run a randomized grid search with 5-fold cross validation
+3. Apply the chosen hyperparameters to the full test data
+
+For the actual hyperparameters used in the XGBoost model, please refer [here.](./notebooks/pipeline_xgboost.ipynb)
 
 The table below shows results on the test set for the two models.
 
