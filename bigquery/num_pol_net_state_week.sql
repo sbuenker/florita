@@ -2,6 +2,10 @@
     # subset the original FEMA policies dataset based on variables needed to determine voluntary purchases of flood insurance
     # calculate the purchases, terminations and net policies bought in any given week in any given state
 
+# input: FEMA NFIP Policies dataset: https://www.fema.gov/openfema-data-page/fima-nfip-redacted-policies-v1 
+  # FEMA data uploaded to Google Cloud Storage and imported as SQL dataset in BigQuery
+# output: generates SQL table which is subsequently saved as "num_pol_net_state_week.csv" 
+
 # step 1. subset data on columns we need; convert countyCode to string; extract year from date
 WITH cte AS (
   SELECT

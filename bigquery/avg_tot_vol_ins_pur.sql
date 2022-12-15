@@ -4,9 +4,13 @@
   # average totalContentsInsuranceCoverage
   # average totalInsurancePremiumOfThePolicy
   # average policyCost
-  # average building insurace per policy = average(totalBuildingInsuranceCoverage/policyCount)
+  # average building insurance per policy = average(totalBuildingInsuranceCoverage/policyCount)
   # average contents insurance per policy = average(totalContentsInsuranceCoverage/policyCount)
   # total policyCount
+
+# input: FEMA NFIP Policies dataset: https://www.fema.gov/openfema-data-page/fima-nfip-redacted-policies-v1 
+  # FEMA data uploaded to Google Cloud Storage and imported as SQL dataset in BigQuery
+# output: generates SQL table which is subsequently saved as "avg_tot_vol_ins_pur.csv" 
 
 # step 1. subset data on columns we need; convert countyCode to string; extract year from date
 WITH cte AS (

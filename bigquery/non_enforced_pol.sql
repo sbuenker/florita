@@ -1,5 +1,9 @@
 # the steps below filter for the non-enforced purchase of FEMA policies
 
+# input: FEMA NFIP Policies dataset: https://www.fema.gov/openfema-data-page/fima-nfip-redacted-policies-v1 
+  # FEMA data uploaded to Google Cloud Storage and imported as SQL dataset in BigQuery
+# output: generates SQL table which is subsequently saved as "non_enforced_pol.csv" 
+
 # step 1. subset data on columns we need; convert countyCode to string
 WITH cte AS (
   SELECT
