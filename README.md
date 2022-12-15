@@ -120,7 +120,7 @@ Our approach for hyperparameter tuning for XGBoost is to:
 2. Run a randomized grid search with 5-fold cross validation.
 3. Apply the chosen hyperparameters to the full test data.
 
-For the actual hyperparameters used in the XGBoost model, please refer [here.](./notebooks/pipeline_xgboost.ipynb)
+For the actual hyperparameters used in XGBoost, please refer [here.](./notebooks/pipeline_xgboost.ipynb)
 
 The table below shows results on the test set for the two models.
 
