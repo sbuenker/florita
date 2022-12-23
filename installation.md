@@ -36,6 +36,7 @@ For setting up the virtual environment with conda:
 
 ```
 conda env create -f environment.yml
+conda activate flood
 ```
 
 The `requirements.txt` file contains the libraries needed to run the EDA and modeling notebooks, including creating the Folium maps.
