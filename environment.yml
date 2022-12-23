@@ -1,4 +1,4 @@
-name: florita
+name: flood
 channels:
   - conda-forge
   - defaults
