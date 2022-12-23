@@ -1,4 +1,4 @@
-name: ds-playground
+name: florita
 channels:
   - conda-forge
   - defaults
