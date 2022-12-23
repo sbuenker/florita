@@ -1,7 +1,9 @@
 # Requirements and Installation:
 
 + pyenv with Python: 3.9.8
+
 or
+
 + conda with Python: 3.9.8
 
 ## Clone the Repo
