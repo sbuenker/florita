@@ -29,7 +29,7 @@ pyenv local 3.9.8
 python -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
-pip install -r requirements_dev.txt
+pip install -r requirements.txt
 ```
 
 For setting up the virtual environment with conda:
@@ -47,4 +47,4 @@ Both datasets are available as csv files through Open FEMA. The policies data ca
 
 ## Run the Notebooks
 
-Next, head over to notebooks folder and read or run the notebooks that pique your interests.
+Next, head over to notebooks folder and read or run the notebooks that pique your interest.
