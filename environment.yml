@@ -1,4 +1,4 @@
-name: ds-playground
+name: flood
 channels:
   - conda-forge
   - defaults
