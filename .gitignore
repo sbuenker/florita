@@ -128,12 +128,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Data files
 data/FimaNfipPolicies.csv
 data/FimaNfipClaims.csv
-models/*.sav
-mlruns
-models/*
-data/*
 
 #config file has sensitive data
 .mlflow_uri

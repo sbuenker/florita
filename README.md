@@ -51,7 +51,7 @@ U.S. Census Data is obtained via the [CORGIS Dataset Project’s County Demograp
 
 For more details on data cleaning, please refer to the following:
 * For cleaning and collapsing policies data using Google BigQuery, click [here.](./bigquery)
-* For cleaning claims data, click [here.]
+* For cleaning claims data, click [here.](./notebooks/claims_eda.ipynb)
 * For generating datasets at the state level, click [here.](./notebooks/state_data_generation.ipynb)
 * Creation of utility helper functions, click [here.](./notebooks/utils/)
 
@@ -76,7 +76,7 @@ There are four main findings from the figures above:
 4. Among residential households that voluntarily purchase flood insurance policies, those in the Mid-West, New England and along the Pacific Coast are the most under-insured with respect to flood risk. 
 
 For more detailed exploratory data analysis, please refer to the following:
-* Exploratory data analysis on the claims data, located [here.](installation.md)
+* Exploratory data analysis on the claims data, located [here.](./notebooks/claims_eda.ipynb)
 * Exploratory data analysis on the policies data, by state, located [here.](./notebooks/states_eda.ipynb)
 * Generation of csv files for the maps, located [here.](./notebooks/maps_csvs.ipynb)
 
@@ -144,21 +144,21 @@ To calculate the monetary loss under the baseline model and under the XGBoost mo
 * Assume that our stakeholder can borrow at the risk-free rate when capital on their balance sheet is not enough to meet claim pay-outs. 
 * Assume that our stakeholder forgoes the average S&P500 market return when they hold too much capital on their balance sheet.
 
-The table below compares the dollar value of claims misclassification per year, for the baseline model and the XGBoost model.
+The table below compares the dollar value of claims misclassification per year, for the Proportions Model (Baseline) and XGBoost. Since the numbers represent losses, we attach a negative sign to the values.
 
-||Proportions Model (Baseline)|XGBoost Model|
+||Proportions Model (Baseline)|XGBoost|
 |--|--:|--:|
-|False Positives|$67.7 million|$71.3 million|
-|False Negatives|$64.5 million|$60.6 million|
-|Total|**$132.3 million**|**$77.3 million**|
+|False Positives|-$67.7 million|-$71.3 million|
+|False Negatives|-$64.5 million|-$60.6 million|
+|Total|**-$132.3 million**|**-$77.3 million**|
 
-XGBoost therefore reduces loss to our stakeholder of **$54.9 million per year!**
+XGBoost therefore reduces loss to our stakeholder by **$54.9 million per year!**
 
 The average dollar value per year is calculated as follows:
 ```
-Average $ Value of False Positives/Year = Total Number of False Positives x Average Claim Size x (1/Number of Years) x (1 + Average S&P500 Market Return)
+Average $ Value of False Positives/Year = Total Number of False Positives x Average Claim Size x (1/Number of Years) x (1 + Average S&P500 Market Return) x (-1)
 
-Average $ Value of False Negatives/Year = Total Number of False Negatives x Average Claim Size x (1/Number of Years) x (1 + Average Risk-Free Rate)
+Average $ Value of False Negatives/Year = Total Number of False Negatives x Average Claim Size x (1/Number of Years) x (1 + Average Risk-Free Rate) x (-1)
 
 Number of Years = 45 (difference between 2022 and 1977)
 Average Claim Size = $24,299.00 (estimated from the claims data)
